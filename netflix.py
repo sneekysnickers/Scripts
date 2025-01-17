@@ -142,5 +142,5 @@ if __name__ == "__main__":
     print("Email figyelés indítása...")
     while True:
         check_email_and_click()
-        print("Nincs új célzott email. Újraellenőrzés 60 másodperc múlva...")
-        time.sleep(60)  # 60 másodpercenként újraellenőrzés
+        print("Nincs új célzott email. Újraellenőrzés 15 másodperc múlva...")
+        time.sleep(15)  # 15 másodpercenként újraellenőrzés
