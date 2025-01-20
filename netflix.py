@@ -20,7 +20,7 @@ TARGET_SENDER = 'info@account.netflix.com'
 TARGET_SUBJECT = 'Fontos:'
 
 # Selenium böngésző beállítása
-CHROME_DRIVER_PATH = 'c:/Users/patri/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe'  # Cseréld ki a ChromeDriver pontos helyére
+CHROME_DRIVER_PATH = '/usr/bin/chromedriver'  # Cseréld ki a ChromeDriver pontos helyére
 
 def check_email_and_click():
     try:
