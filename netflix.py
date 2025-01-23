@@ -20,7 +20,7 @@ TARGET_SENDER = 'info@account.netflix.com'
 TARGET_SUBJECT = 'Fontos:'
 
 # Selenium böngésző beállítása
-CHROME_DRIVER_PATH = '/usr/bin/chromedriver'  # Cseréld ki a ChromeDriver pontos helyére
+CHROME_DRIVER_PATH = 'C:/Users/patri/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe'  # Cseréld ki a ChromeDriver pontos helyére
 
 def check_email_and_click():
     try:
@@ -79,6 +79,7 @@ def click_button_on_website(url):
     options = Options()
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
+    
 
     service = Service(CHROME_DRIVER_PATH)
     driver = webdriver.Chrome(service=service, options=options)
@@ -87,29 +88,6 @@ def click_button_on_website(url):
         # Weboldal megnyitása
         driver.get(url)
         time.sleep(6)  # Várakozás az oldal betöltésére
-        
-        # Kattintás a cookie elfogadása gombra az ID alapján
-        try:
-            cookie_accept_button = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.ID, "onetrust-accept-btn-handler"))
-            )
-            cookie_accept_button.click()
-            print("Cookie gomb elfogadva!")
-        except Exception as e:
-            print(f"Hiba történt a cookie gomb kattintásakor: {e}")
-
-        # Bejelentkezés - Adatok kitöltése
-        username = 'patrikhoszpodar@gmail.com'
-        password = 'Hatalmasbaj45'
-        driver.find_element(By.CSS_SELECTOR, '[name="userLoginId"]').send_keys(username)
-        driver.find_element(By.CSS_SELECTOR, '[name="password"]').send_keys(password)
-
-        # Bejelentkezés gomb kattintása
-        login_button = WebDriverWait(driver, 30).until(
-            EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-uia="login-submit-button"]'))
-        )
-        login_button.click()
-        print("Bejelentkezés sikeres.")
 
         # Várakozás a "Frissítés megerősítése" gombra, és kattintás
         WebDriverWait(driver, 30).until(
